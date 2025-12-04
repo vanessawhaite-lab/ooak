@@ -12,15 +12,42 @@ body {
   color: #ffffff;
 }
 
-/* main app frame */
+/* buttons inherit font */
+button {
+  font-family: inherit;
+}
+
+/* material icons */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+/* main app frame (phone-ish shell) */
 .app {
   min-height: 100vh;
   max-width: 420px;
   margin: 0 auto;
-  padding: 12px 16px 72px; /* bottom space for nav */
+  padding: 12px 16px 80px; /* bottom space for floating nav */
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+/* on larger screens, give the app a subtle device feel */
+@media (min-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .app {
+    border-radius: 36px;
+    box-shadow:
+      0 30px 80px rgba(0, 0, 0, 0.9),
+      0 0 0 1px rgba(255, 255, 255, 0.04);
+    overflow: hidden;
+  }
 }
 
 /* top bar */
@@ -35,11 +62,23 @@ body {
   width: 32px;
   height: 32px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.08), transparent)
+      border-box,
+    rgba(255, 255, 255, 0.02);
   color: #ffffff;
   font-size: 16px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.circle-btn:active {
+  transform: translateY(1px);
 }
 
 .logo {
@@ -69,18 +108,20 @@ body {
   gap: 12px;
   overflow-x: auto;
   padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .world-pill {
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .world-pill span {
@@ -91,7 +132,17 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 999px;
-  background: #333333;
+  background: radial-gradient(circle at 30% 0%, #555555, #222222);
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* feed */
+.feed-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 /* drop section */
@@ -118,7 +169,10 @@ body {
   width: 24px;
   height: 24px;
   border-radius: 999px;
-  background: #333333;
+  background: radial-gradient(circle at 30% 0%, #666666, #222222);
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 .username {
@@ -126,16 +180,21 @@ body {
   font-weight: 500;
 }
 
-/* buttons */
+/* follow button */
 .follow-btn {
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.7);
   padding: 4px 16px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.02);
   color: #ffffff;
   font-size: 10px;
   letter-spacing: 0.08em;
   cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.7);
+}
+
+.follow-btn:active {
+  transform: translateY(1px);
 }
 
 /* media card */
@@ -143,24 +202,37 @@ body {
   position: relative;
   margin-top: 6px;
   border-radius: 24px;
-  background: #f5f5f5;
+  background: linear-gradient(145deg, #f8f8f8, #dedede);
   color: #111111;
   padding: 18px;
   min-height: 140px;
+  box-shadow:
+    0 22px 40px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
 }
 
-.audio-btn {
+/* media icon pill */
+.media-btn {
   position: absolute;
   right: 12px;
   top: 12px;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 999px;
   border: none;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.92);
   color: #ffffff;
-  font-size: 14px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.media-btn .icon {
+  font-size: 18px;
 }
 
 /* social row */
@@ -169,8 +241,6 @@ body {
   align-items: center;
   gap: 14px;
   margin-top: 10px;
-  font-size: 18px;
-  filter: grayscale(100%);
 }
 
 .social-icon {
@@ -178,6 +248,17 @@ body {
   border: none;
   color: #ffffff;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon .icon {
+  font-size: 18px;
+}
+
+.social-icon:active {
+  transform: translateY(1px);
 }
 
 /* meta */
@@ -195,23 +276,103 @@ body {
   font-size: 10px;
 }
 
-/* bottom nav */
+/* world page */
+.world-hero {
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px;
+  margin-bottom: 20px;
+  background: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.08), transparent)
+      border-box,
+    rgba(255, 255, 255, 0.02);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.world-cover {
+  width: 100%;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #111111, #333333);
+  height: 120px;
+  margin-bottom: 12px;
+}
+
+.world-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.world-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.world-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 0%, #777777, #333333);
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.world-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.world-title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.world-tagline {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.world-manifesto {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+.world-section-title {
+  font-size: 11px;
+  text-transform: none;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 6px;
+}
+
+/* bottom nav – floating pill with glass */
 .bottom-nav {
   position: fixed;
   left: 50%;
-  bottom: 8px;
+  bottom: 14px;
   transform: translateX(-50%);
-  width: 100%;
+  width: calc(100% - 32px);
   max-width: 420px;
-  padding: 8px 16px;
-  background: rgba(0, 0, 0, 0.95);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 12px;
+  background: rgba(8, 8, 8, 0.78);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
   display: flex;
   justify-content: space-between;
-  backdrop-filter: blur(8px);
-  filter: grayscale(100%);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.95),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
+/* nav items */
 .nav-item {
   flex: 1;
   border: none;
@@ -220,9 +381,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 22px;
   cursor: pointer;
   text-decoration: none;
+}
+
+.nav-item .icon {
+  font-size: 22px;
 }
 
 .nav-active {

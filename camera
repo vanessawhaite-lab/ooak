@@ -8,6 +8,10 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@200;300;400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -17,30 +21,46 @@
         <div class="logo">
           <span>oneofakinde</span>
         </div>
-        <button class="circle-btn">☰</button>
+        <button class="circle-btn" aria-label="menu">
+          <span class="material-symbols-outlined"> menu </span>
+        </button>
       </header>
 
       <main class="main">
-        <section class="drop-section">
-          <div class="drop-header">
-            <div class="drop-user">
-              <div class="avatar"></div>
-              <span class="username">camera</span>
+        <section class="feed-section">
+          <article class="drop-section">
+            <div class="drop-header">
+              <div class="drop-user">
+                <div class="avatar"></div>
+                <span class="username">camera</span>
+              </div>
             </div>
-          </div>
 
-          <article class="drop-card">
-            <button class="audio-btn">📷</button>
+            <div class="drop-card">
+              <button class="media-btn" aria-label="capture">
+                <span class="icon material-symbols-outlined"> photo_camera </span>
+              </button>
+            </div>
           </article>
         </section>
       </main>
 
       <nav class="bottom-nav">
-        <a href="index.html" class="nav-item" aria-label="home">🏠</a>
-        <a href="music.html" class="nav-item" aria-label="music">🎵</a>
-        <a href="play.html" class="nav-item" aria-label="play">▶️</a>
-        <a href="camera.html" class="nav-item nav-active" aria-label="camera">📷</a>
-        <a href="library.html" class="nav-item" aria-label="library">📖</a>
+        <a href="index.html" class="nav-item" aria-label="home">
+          <span class="icon material-symbols-outlined"> home </span>
+        </a>
+        <a href="music.html" class="nav-item" aria-label="music">
+          <span class="icon material-symbols-outlined"> music_note </span>
+        </a>
+        <a href="play.html" class="nav-item" aria-label="play">
+          <span class="icon material-symbols-outlined"> play_circle </span>
+        </a>
+        <a href="camera.html" class="nav-item nav-active" aria-label="camera">
+          <span class="icon material-symbols-outlined"> photo_camera </span>
+        </a>
+        <a href="library.html" class="nav-item" aria-label="library">
+          <span class="icon material-symbols-outlined"> menu_book </span>
+        </a>
       </nav>
     </div>
   </body>
