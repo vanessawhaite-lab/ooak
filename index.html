@@ -2,8 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>oneofakinde</title>
+    <title>oneofakinde – home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -55,29 +59,17 @@
             <button class="follow-btn">follow</button>
           </div>
 
-          <!-- media block -->
+          <!-- media block (clean player area, no text) -->
           <article class="drop-card">
             <button class="audio-btn">🔊</button>
-            <p>if video → media automatically plays here</p>
-            <p>if photo → shows photo here</p>
-            <p>if music → shows album cover uploaded by user</p>
-            <p>if book → shows book image uploaded by user</p>
-            <p>if blog post → shows preview image uploaded by user</p>
           </article>
 
-          <!-- social row -->
+          <!-- social row: love, comment, collect (painting), collect (card) -->
           <div class="social-row">
-            <div class="social-left">
-              <button>♡</button>
-              <button>💬</button>
-              <button>📥</button>
-            </div>
-            <div class="social-right">
-              <span>👁️</span>
-              <span>🔊</span>
-              <span>🖼️</span>
-              <span>📖</span>
-            </div>
+            <button class="social-icon" aria-label="love">♡</button>
+            <button class="social-icon" aria-label="comment">💬</button>
+            <button class="social-icon" aria-label="collect artwork">🖼️</button>
+            <button class="social-icon" aria-label="collect card">💳</button>
           </div>
 
           <!-- description + date -->
@@ -88,28 +80,13 @@
         </section>
       </main>
 
-      <!-- bottom nav -->
+      <!-- bottom nav: icons only, no labels -->
       <nav class="bottom-nav">
-        <button class="nav-item nav-active">
-          <span>🏠</span>
-          <small>home</small>
-        </button>
-        <button class="nav-item">
-          <span>🎵</span>
-          <small>music</small>
-        </button>
-        <button class="nav-item">
-          <span>▶️</span>
-          <small>play</small>
-        </button>
-        <button class="nav-item">
-          <span>📷</span>
-          <small>camera</small>
-        </button>
-        <button class="nav-item">
-          <span>📖</span>
-          <small>library</small>
-        </button>
+        <a href="index.html" class="nav-item nav-active" aria-label="home">🏠</a>
+        <a href="music.html" class="nav-item" aria-label="music">🎵</a>
+        <a href="play.html" class="nav-item" aria-label="play">▶️</a>
+        <a href="camera.html" class="nav-item" aria-label="camera">📷</a>
+        <a href="library.html" class="nav-item" aria-label="library">📖</a>
       </nav>
     </div>
   </body>
