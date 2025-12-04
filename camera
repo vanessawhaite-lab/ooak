@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>oneofakinde – camera</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="top-bar">
+        <button class="circle-btn">+</button>
+        <div class="logo">
+          <span>oneofakinde</span>
+        </div>
+        <button class="circle-btn">☰</button>
+      </header>
+
+      <main class="main">
+        <section class="drop-section">
+          <div class="drop-header">
+            <div class="drop-user">
+              <div class="avatar"></div>
+              <span class="username">camera</span>
+            </div>
+          </div>
+
+          <article class="drop-card">
+            <button class="audio-btn">📷</button>
+          </article>
+        </section>
+      </main>
+
+      <nav class="bottom-nav">
+        <a href="index.html" class="nav-item" aria-label="home">🏠</a>
+        <a href="music.html" class="nav-item" aria-label="music">🎵</a>
+        <a href="play.html" class="nav-item" aria-label="play">▶️</a>
+        <a href="camera.html" class="nav-item nav-active" aria-label="camera">📷</a>
+        <a href="library.html" class="nav-item" aria-label="library">📖</a>
+      </nav>
+    </div>
+  </body>
+</html>
